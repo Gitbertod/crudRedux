@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -6,27 +6,35 @@ import { useDispatch, useSelector } from 'react-redux'
 import { crearNuevoProductoAction } from '../redux/actions/productosActions'
 
 const NuevoProducto = () => {
+  //state del componente 
+  const [nombre, setNombre] = useState('')
+  const [precio, setPrecio] = useState(0)
 
   //utilizar use dispatch y te crea una funcion
-
   const dispatch = useDispatch()
-  
+
   //manda a llamar el action de procuctosActions
-  const agregarProducto = () =>dispatch(crearNuevoProductoAction())
-  
+  const agregarProducto = (producto) =>dispatch(crearNuevoProductoAction(producto))
+
   //cuando el usuario haga submit
-  const submitNuevoProducto = (e)=>{
+  const submitNuevoProducto = (e) => {
     e.preventDefault();
+    
     //validar formulario
+    if (nombre.trim() === '' || precio <= 0){
+      return;
+    }
+      //si no hay errores
 
-    //si no hay errores
-
-    //crear el nuevo producto
-    agregarProducto()
+      //crear el nuevo producto
+      agregarProducto({
+        nombre,
+        precio
+      })
   }
-  
-  
-  
+
+
+
   return (
     <div className='row justify-content-center'>
       <div className='col-md-8'>
@@ -34,7 +42,7 @@ const NuevoProducto = () => {
           <div className='card-body'>
             <h2 className='text-center mb-4 font-weight-bold'>Agregar nuevo Producto</h2>
             <form
-            onSubmit={submitNuevoProducto}
+              onSubmit={submitNuevoProducto}
             >
               <div className='form-group'>
                 <label>Nombre Producto</label>
@@ -43,16 +51,20 @@ const NuevoProducto = () => {
                   className='form-control'
                   placeholder='Nombre Producto'
                   name='nombre'
+                  value={nombre}
+                  onChange={e => setNombre(e.target.value)}
                 />
               </div>
 
               <div className='form-group'>
-                <label>Nombre Producto</label>
+                <label>Precio Producto</label>
                 <input
-                  type='text'
+                  type='number'
                   className='form-control'
-                  placeholder='Nombre Producto'
+                  placeholder='Precio Producto'
                   nombre='precio'
+                  value={precio}
+                  onChange={e => setPrecio(Number(e.target.value))}
                 />
               </div>
 
