@@ -2,12 +2,12 @@ import {
     AGREGRAR_PRODUCTO,
     AGREGAR_PRODUCTO_EXITO,
     AGREGAR_PRODUCTO_ERROR
-}   from '../types/index'
+} from '../types/index'
 
 //CREAR NUEVOS PRODUCTOS
 
-export function crearNuevoProductoAction (producto){
-    return (dispatch)=>{
+export function crearNuevoProductoAction(producto) {
+    return (dispatch) => {
         dispatch(agregarProducto())
 
         try {
@@ -19,15 +19,16 @@ export function crearNuevoProductoAction (producto){
     }
 }
 
-const agregarProducto = () =>({
-    type:AGREGRAR_PRODUCTO 
+const agregarProducto = () => ({
+    type: AGREGRAR_PRODUCTO
 })
 
-const agregarProductoExito = (producto) =>({
+const agregarProductoExito = (producto) => ({
     type: AGREGAR_PRODUCTO_EXITO,
     payload: producto
 })
-    
-const agregarProductoError = ()=>({
 
+const agregarProductoError = (estado) => ({
+    type: AGREGAR_PRODUCTO_ERROR,
+    payload:estado
 })
