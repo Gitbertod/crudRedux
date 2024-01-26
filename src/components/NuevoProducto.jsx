@@ -13,6 +13,11 @@ const NuevoProducto = () => {
   //utilizar use dispatch y te crea una funcion
   const dispatch = useDispatch()
 
+  //acceder al state del store
+  const cargando = useSelector((state)=> state.productos.loading);
+
+  console.log(cargando)
+
   //manda a llamar el action de procuctosActions
   const agregarProducto = (producto) =>dispatch(crearNuevoProductoAction(producto))
 
