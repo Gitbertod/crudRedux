@@ -39,6 +39,36 @@
       "id": "c052",
       "nombre": "Lorena",
       "precio": 100
+    },
+    {
+      "id": "21c6",
+      "nombre": "Transporte",
+      "precio": 54
+    },
+    {
+      "id": "c7c3",
+      "nombre": "GilbertoD",
+      "precio": 5000
+    },
+    {
+      "id": "66dc",
+      "nombre": "Playstation",
+      "precio": 100
+    },
+    {
+      "id": "102f",
+      "nombre": "Playstation2",
+      "precio": 100
+    },
+    {
+      "id": "dc99",
+      "nombre": "Playstation3",
+      "precio": 100
+    },
+    {
+      "id": "18c7",
+      "nombre": "consola",
+      "precio": 233
     }
   ]
 }

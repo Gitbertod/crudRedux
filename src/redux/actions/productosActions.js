@@ -14,7 +14,7 @@ export function crearNuevoProductoAction(producto) {
 
         try {
             //Insertar en la API
-            await clienteAxios.post('/productos',producto);
+            await clienteAxios.post('/roductosf',producto);
             
             //si todo sale bien se actualiza el state
             dispatch(agregarProductoExito(producto));
@@ -35,8 +35,9 @@ const agregarProductoExito = (producto) => ({
     payload: producto
 })
 
-const agregarProductoError = () => ({
-    type: AGREGAR_PRODUCTO_ERROR
+const agregarProductoError = (estado) => ({
+    type: AGREGAR_PRODUCTO_ERROR,
+    payload: estado
 })
 
 
