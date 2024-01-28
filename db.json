@@ -69,6 +69,31 @@
       "id": "18c7",
       "nombre": "consola",
       "precio": 233
+    },
+    {
+      "id": "6d9b",
+      "nombre": "Gilberto Diaz",
+      "precio": 10000
+    },
+    {
+      "id": "67db",
+      "nombre": "Gilberto Diaz",
+      "precio": 10000
+    },
+    {
+      "id": "f06b",
+      "nombre": "Gilberto Diaz",
+      "precio": 10000
+    },
+    {
+      "id": "63f1",
+      "nombre": "Gilberto Diaz",
+      "precio": 10000
+    },
+    {
+      "id": "a368",
+      "nombre": "Gilberto Diaz",
+      "precio": 10000
     }
   ]
 }
