@@ -1,7 +1,11 @@
 import {
     AGREGRAR_PRODUCTO,
     AGREGAR_PRODUCTO_EXITO,
-    AGREGAR_PRODUCTO_ERROR
+    AGREGAR_PRODUCTO_ERROR,
+    COMENZAR_DESCARGA_PRODUCTOS,
+    DESCARGA_PRODUCTOS_EXITO,
+    DESCARGA_PRODUCTO_ERROR
+    
 }   from '../types/index'
 
 
@@ -15,10 +19,11 @@ const initialState = {
 
 export default function (state = initialState,action){
     switch (action.type) {
+        case COMENZAR_DESCARGA_PRODUCTOS:
         case AGREGRAR_PRODUCTO:
             return {
                 ...state,
-                loading:true
+                loading:action.payload
             }
         case AGREGAR_PRODUCTO_EXITO:
             return{

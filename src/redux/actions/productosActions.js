@@ -1,7 +1,10 @@
 import {
     AGREGRAR_PRODUCTO,
     AGREGAR_PRODUCTO_EXITO,
-    AGREGAR_PRODUCTO_ERROR
+    AGREGAR_PRODUCTO_ERROR,
+    COMENZAR_DESCARGA_PRODUCTOS,
+    DESCARGA_PRODUCTOS_EXITO,
+    DESCARGA_PRODUCTO_ERROR
 } from '../types/index';
 
 import clienteAxios from '../../config/axios'
@@ -15,8 +18,8 @@ export function crearNuevoProductoAction(producto) {
 
         try {
             //Insertar en la API
-            await clienteAxios.post('/Fproductos',producto);
-            
+            await clienteAxios.post('/Fproductos', producto);
+
             //si todo sale bien se actualiza el state
             dispatch(agregarProductoExito(producto));
 
@@ -25,20 +28,20 @@ export function crearNuevoProductoAction(producto) {
                 title: "Correcto!",
                 text: "Producto agregado con éxito!",
                 icon: "success"
-              });
+            });
 
 
         } catch (error) {
             console.log(error)
             dispatch(agregarProductoError(true))
-            
+
             //alerta de error
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
                 text: "Algo salio mal...",
                 footer: '<a href="#">Why do I have this issue?</a>'
-              });
+            });
         }
 
     }
@@ -57,4 +60,16 @@ const agregarProductoError = (estado) => ({
     payload: estado
 })
 
+//FUNCION QUE DESCARGA LOS PRODUCTOS DE LA API
+
+export const obtenerProductosAction = () => {
+    return async (dispatch) => {
+        dispatch(desargarProductos());
+    }
+}
+
+const descargarProductos = () => ({
+    type: COMENZAR_DESCARGA_PRODUCTOS,
+    payload: true
+})
 
